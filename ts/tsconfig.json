@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "sourceMap": true,
+      "types": [
+          "vitest"
+      ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

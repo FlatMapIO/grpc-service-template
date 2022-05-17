@@ -1,0 +1,16 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^0.12.6"
+  },
+  "dependencies": {
+    "@vitest/ui": "^0.12.6",
+    "vite": "^2.9.9"
+  }
+}

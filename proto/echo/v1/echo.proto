@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package helloworld.v1;
+option go_package = "github.com/FlatMapIO/grpc-service-template/pkg/helloworld/v1";
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+message EchoRequest {
+    string message = 1 [(validate.rules).string = {
+        max_bytes: 32,
+    }];
+}
+message EchoResponse {
+    string message = 1;
+}
+
+message ServerStreamingEchoRequest {
+    string message = 1 [(validate.rules).string = {
+        max_bytes: 32,
+    }];
+}
+message ServerStreamingEchoResponse {
+    string message = 1;
+}
+
+service EchoService {
+    rpc Echo (EchoRequest) returns (EchoResponse) {
+        option (google.api.http) = {
+            post: "/v1/example/echo"
+            body: "*"
+        };
+    }
+    rpc EchoStreaming (ServerStreamingEchoRequest)
+            returns (stream ServerStreamingEchoResponse);
+}
